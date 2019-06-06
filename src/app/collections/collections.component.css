@@ -1,0 +1,13 @@
+.container {
+  margin-top: 40px;
+}
+.row{
+  margin-bottom: 20px;
+}
+.card-img-top{
+  height: 20vw;
+  object-fit: inherit;
+}
+.col-md-4 {
+max-width: 25%;
+}

@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <button class="btn btn-success" (click)="onNewCake()">New Cake</button>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-xs-12">
+     
+      <app-cake-item *ngFor="let cakeEl of cakes; let i=index" [cake]="cakeEl" [id]="cakeEl.id" ></app-cake-item>
+    </div>
+  </div>
+  
+</div>

@@ -1,0 +1,21 @@
+<h4><b>Topping</b></h4>
+
+<mat-grid-list cols="6" rowHeight="1:1">
+    <mat-grid-tile>
+<mat-card class="example-card"
+          [@cardAnimator]="animationState"
+          (@cardAnimator.done)="resetAnimationState()">
+
+    <mat-card-content>
+        <img mat-card-image src="https://media.mnn.com/assets/images/2015/10/NutellaHazelnutSpread.jpg.495x0_q80_crop-smart.jpg">
+
+      <p>
+          Nutella
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (tap)="startAnimation('swing')">SWING</button>
+    </mat-card-actions>
+  </mat-card>
+</mat-grid-tile>
+</mat-grid-list>

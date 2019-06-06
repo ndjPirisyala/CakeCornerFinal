@@ -1,0 +1,9 @@
+<a [routerLink]="[id]" class="list-group-item clearfix" routerLinkActive="active" (click)="onSelected()" >
+    <div class="float-left">
+      <h4 class="list-group-item-heading">{{cake.name}}</h4>
+      <p class="list-group-item-text">{{cake.description}}</p>
+    </div>
+    <span class="float-right">
+      <img [src]="cake.imagePath" alt="{{cake.name}}" class="img-responsive" style="max-height: 50px;">
+    </span>
+  </a>

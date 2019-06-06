@@ -1,0 +1,27 @@
+<table *ngIf="users" class="table-fill">
+  <thead>
+      <tr>
+          <th colspan="2" class="text-center">User Profile</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>First Name</td>
+          <td>{{users.fullName.split(' ')[0]}}</td>
+      </tr>
+      <tr>
+          <td>Last Name</td>
+          <td>{{users.fullName.split(' ')[1]}}</td>
+      </tr>
+      <tr>
+          <td>Email</td>
+          <td>{{users.email}}</td>
+      </tr>
+      <tr>
+          <td colspan="2" class="text-center">
+              <a [routerLink]="['/userprofile/edit', users._id]" class="btn btn-primary">Edit</a>
+              <input type="button" (click)="onLogout()" value="Logout" />
+          </td>
+      </tr>
+  </tbody>
+</table>

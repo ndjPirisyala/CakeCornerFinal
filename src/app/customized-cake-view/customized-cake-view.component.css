@@ -1,0 +1,21 @@
+img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 500px;
+  margin: 12.5%;
+  width: 75%;
+  border: 3px solid green;
+  padding: 10px;
+}
+
+
+* {margin: 0; padding: 0;}
+#container {height: 100%; width:100%; font-size: 0;}
+#left, #middle, #right {display: inline-block; *display: inline; zoom: 1; vertical-align: top; font-size: 12px;}
+#left {width: 50%; background: white;}
+#right {width: 50%; background: palegoldenrod;}
+
+/* #add_to_cart_button{
+  margin: 50%;
+} */

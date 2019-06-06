@@ -1,0 +1,67 @@
+<html>
+<body>
+<section class="login_box_area p_120">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="login_box_img">
+          <img class="img-fluid" src="assets/login.jpg" alt="" >
+        <div class="hover">
+          <h4>New to our website?</h4>
+          <p>There are advances being made in science and technology everyday, and a good example of this is the</p>
+          <div>
+            <button class="btn btn-dark btn-lg btn-block" routerLink="/login">Already have an account?</button>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="login_form_inner reg_form">
+          <h3>Create an Account</h3>
+              <form class="login_form" [formGroup]="registerForm" #signUpForm="ngForm" (ngSubmit)="onSubmit(signUpForm)">
+                <div class="form-group">
+                    <input type="text" [(ngModel)]="userService.selectedUser.fullName" formControlName="fullName" placeholder="Full Name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.fullName.errors }" />
+                    <div *ngIf="submitted && f.fullName.errors" class="invalid-feedback">
+                        <div *ngIf="f.fullName.errors.required">First Name is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" [(ngModel)]="userService.selectedUser.email" formControlName="email" placeholder="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                        <div *ngIf="f.email.errors.required">Email is required</div>
+                        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="password" [(ngModel)]="userService.selectedUser.password" formControlName="password" placeholder="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                        <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="password" [(ngModel)]="userService.selectedUser.confirmPassword" formControlName="confirmPassword" placeholder="confirmPassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+                    <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                        <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                        <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                    </div>
+                </div>
+                <div class="form-group" >
+                    <button class="btn btn-primary" >Register</button>
+                </div>
+            </form>
+
+              <div class="success" *ngIf="showSuccessMessage">
+                saved successfully
+              </div>
+            </div>
+
+            <div class="alert" *ngIf="serverErrorMessages">
+              {{serverErrorMessages}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

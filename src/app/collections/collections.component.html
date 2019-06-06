@@ -1,0 +1,71 @@
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row">
+
+      <div class="row">
+          <div class="col-md-12">
+              <h3>
+                  Your Cart
+                </h3>
+                <ul class="list-group">
+                  Price Lists
+               <li *ngFor="let price of prices;let i=index">{{i+1}}:{{price}}</li>
+
+                  {{totalprice}}
+
+               <button (click)="onCheckout()"  class="btn btn-success">Checkout</button>
+                </ul>
+          </div>
+        </div>
+
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img class="card-img-top" src="assets/tshirt3.jpg" alt="Card image cap">
+          <div class="card-body">
+              Price:$67
+            <p class="card-text">A wedding cake is the traditional cake served at wedding receptions following dinner. In some parts of England, the wedding cake is served at a wedding breakfast; </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                  <button type="button"  class="btn btn-sm btn-outline-secondary">Wishlist</button>
+                <button (click)="onClick()" class="btn btn-sm btn-outline-secondary">Add To Cart</button>
+              </div>
+              <small class="text-muted"></small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img class="card-img-top" src="assets/shirt2.jpg" alt="Card image cap">
+          <div class="card-body">
+              Price:$57
+            <p class="card-text">A wedding cake is the traditional cake served at wedding receptions following dinner. In some parts of England, the wedding cake is served at a wedding breakfast;</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+              <button type="button" class="btn btn-sm btn-outline-secondary">Wishlist</button>
+                  <button (click)="onClicks()"  class="btn btn-sm btn-outline-secondary">Add To Cart</button>
+              </div>
+              <small class="text-muted"></small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card mb-4 shadow-sm">
+          <img class="card-img-top" src="assets/tshirt2.jpg" alt="Card image cap">
+          <div class="card-body">
+              Price:$87
+            <p class="card-text">A wedding cake is the traditional cake served at wedding receptions following dinner. In some parts of England, the wedding cake is served at a wedding breakfast;</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                  <button type="button"  class="btn btn-sm btn-outline-secondary">Wishlist</button>
+                  <button (click)="onClickss()"  class="btn btn-sm btn-outline-secondary">Add To Cart</button>
+              </div>
+              <small class="text-muted"></small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

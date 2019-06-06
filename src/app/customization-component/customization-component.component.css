@@ -1,0 +1,26 @@
+
+#shape {
+  position: absolute;
+  left: 33.33%;
+  top: 142px;
+}
+
+#flavour {
+  position: absolute;
+  left: 66.66%;
+  top: 142px;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}
+
+#view_options_button{
+  position: absolute;
+  left: 40%
+}
+
+#view_button{
+  position: absolute;
+  left: 45%
+}

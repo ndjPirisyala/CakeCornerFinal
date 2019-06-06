@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cashier dashboard</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	
+
+</head>
+<body>
+	<div class="w3-content" style="max-width:2000px;margin-top:49px;">
+	
+		<div class="content" style="background: #f0f0f0;height: auto;min-height: 670px;">
+			<h2 class="mont" style="padding: 25px 20px 0;">Customer Care</h2>
+			<hr style="border-color: rgba(0,0,0,0.2);">
+			<div class="row-padding" style="padding-bottom: 20px;padding-top: 20px;">
+				<div class="col" style="width: 20%;">
+					<div class="mont" style="border: 1px solid lightgrey;border-radius: 10px;background-color:white;padding: 10px 20px;font-size: 30px;padding: 20px 20px;">
+						Messages
+           
+             
+           
+          </div>
+          <span class="fa-stack fa-1x">
+            <i class="fa fa-circle fa-stack-2x" style="color: red;font-size:2.1em;top:-100px;right:120px;position:relative;left:160px;"><span class="fa fa-stack-1x" style="color: white;font-size:17px;top: 5px;">{{feeds.length}}</span></i>
+            
+          </span>
+				</div>
+        <div class="container">
+            <div class="row">
+             
+              <div class="col" style="border: 1px solid lightgrey;border-radius: 3px;background-color:white;margin-right:16px;width: 55%;padding: 10px 10px;">
+               
+                  <div class="container">
+                      <div class="row" *ngFor="let feedEl of feeds" style="margin-bottom: 5px">
+						 
+                  <div  class="col col-md-7 d-inline" style="border: 1px solid lightgrey;border-radius: 5px;background-color: #d6e0f5;width: 80%;">
+
+					  Name : {{feedEl?.name}}<br>Email : {{feedEl?.email}}<br>Message : {{feedEl?.message}}
+					 <input type="hidden" value="{{feedEl?.email}}">
+                  </div>
+                  <div class="col col-md-2 d-inline align-self-center" style="width: 10%">
+                      <button (click)="setEmail(feedEl?.email)" class="btn btn-success" >Reply</button>
+                    </div>
+                    <div class="col col-md-1 d-inline align-self-center" style="width: 10%">
+                        <button type="button" class="btn btn-danger" (click)="remove(feedEl.id)">Remove</button>
+					  </div>
+				
+				</div>
+              </div>
+        
+              </div>
+              <div class="col" style="border: 1px solid lightgrey;border-radius: 3px;background-color:white;margin-right:16px;width: 55%;padding: 10px 10px;">
+                	
+                   
+                  <div class="container">
+					<form [formGroup]="emailForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group row">
+                    <label for="to" class="col-sm-4 col-form-label">To <span style="color: red;margin-left: 4px;">*</span></label>
+                    <div class="col-sm-8">
+                    <input type="text" class="form-control" value="{{setMail}}" formControlName="to">
+                  </div>
+                  </div>
+
+                  <div class="form-group row">
+                      <label for="to" class="col-sm-4 col-form-label">Subject <span style="color: red;">*</span></label>
+                      <div class="col-sm-8">
+                      <input type="text" class="form-control" formControlName="subject">
+                    </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="to" class="col-sm-4 col-form-label">Message <span style="color: red;">*</span></label>
+                        <div class="col-sm-8">
+                        <textarea name="" id="" cols="36" rows="5" formControlName="message"></textarea>
+                      </div>
+                      </div>
+
+                      <div class="text-center">
+                          <button type="submit" class="btn btn-success" style="padding: 15px 20px;margin-top: 10px;">Send Email</button>
+                        </div>
+					</form>
+                  </div>
+                </div>
+           
+           
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  
+ 
+			<!-- <div class="container" style="padding-top: 20px;padding-bottom: 20px;">
+       
+				<div style="border: 1px solid lightgrey;border-radius: 3px;background-color:white;margin-right:16px;width: 55%;padding: 10px 10px;">
+					<div class="row">
+				
+					<div class="col-md-6" style="padding: 10px 10px 5px 10px;">
+						<div  style="border: 1px solid lightgrey;border-radius: 5px;background-color: #d6e0f5;padding: 10px 20px;width: 80%;margin-bottom: 10px;">Name : <?php echo $row->name ?><br>Email : <?php echo $row->email ?><br>Message : <?php echo $row->message ?></div>
+						
+						<div class="col-md-1" style="width: 10%">
+							<button onclick="setEmail()" class="btn btn-success w3-round w3-hover-shadow w3-hover-green" style="padding: 10px 10px;margin:20px 0 0 10px;">Reply</button>
+						</div>
+						<form method="post" action="../manager/removeMessage">
+						<input type="hidden" name="name">
+						<input type="hidden" name="email" id="email">
+						<input type="hidden" name="message">
+						<div class="col-md-1" style="width: 10%">
+							<button type="submit" class="btn btn-danger w3-round w3-hover-shadow w3-hover-red" style="padding: 10px 5px;margin:20px 0 0 10px;">Remove</button>
+						</div>
+						</form>
+          </div>
+				</div>
+				
+				</div>
+				<div class="col" style="border: 1px solid lightgrey;border-radius: 3px;background-color:white;margin-right:16px;width: 40%;padding: 10px 10px;">
+					<form action="../manager/email" method="post">
+						<div class="w3-row-padding" style="padding: 10px;">
+								<div class="w3-col w3-container" style="width: 35%">
+									<span class="label1" style="padding-top: 10px;">To<span style="color: red;margin-left: 4px;">*</span></span>
+								</div>
+								<div class="w3-col w3-container" style="width: 65%">
+									<div class="w3-col" style="width: 100%">
+										<input class="w3-input w3-border w3-round" name="to" placeholder="" value="" type="email" id="semail">
+									</div>
+									<div class="w3-col" style="width: 60%;color: red;margin-left:10px;">
+										
+									</div>
+								</div>
+						</div>
+						<div class="w3-row-padding" style="padding: 10px;">
+								<div class="w3-col w3-container" style="width: 35%">
+									<span class="label1" style="padding-top: 10px;">Subject<span style="color: red;margin-left: 4px;">*</span></span>
+								</div>
+								<div class="w3-col w3-container" style="width: 65%">
+									<div class="w3-col" style="width: 100%">
+										<input class="w3-input w3-border w3-round" name="subject" placeholder="" value="" type="text">
+									</div>
+								</div>
+						</div>
+						<div class="w3-row-padding" style="padding: 10px;">
+								<div class="w3-col w3-container" style="width: 35%">
+									<span class="label1" style="padding-top: 10px;">Message<span style="color: red;margin-left: 4px;">*</span></span>
+								</div>
+								<div class="col container" style="width: 65%">
+									<div class="w3-col" style="width: 100%">
+										<textarea class="w3-input w3-border w3-round" name="message" placeholder="" value="" type=""></textarea>
+									</div>
+									<div class="col" style="width: 60%;color: red;margin-left:10px;">
+											
+									</div>
+								</div>
+						</div>
+						<div class="text-center">
+							<span style="color: green;margin-left: 20px;"></span>
+							<span style="color: red;margin-left: 20px;"></span>
+						</div>
+						<div class="text-center">
+							<button type="submit" class="btn btn-success" style="padding: 15px 20px;margin-top: 10px;">Send Email</button>
+						</div>
+					</form>
+        </div>
+			
+			</div>
+		</div>
+		
+	</div> -->
+</body>
+<!-- <script>
+	function setEmail(){
+		var email=document.getElementById("email").value;
+		document.getElementById("semail").value=email;
+	}
+</script> -->
+</html>

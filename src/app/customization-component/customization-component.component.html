@@ -1,0 +1,82 @@
+<br>
+<h3><b>Make Your Own Cake!!!</b></h3>
+
+<br>
+
+<div id=size>
+<h4><b>Size</b></h4>
+
+<div class="custom-control custom-radio">
+    <input type="radio" class="custom-control-input" id="small" name="size_rb" (click)="sSize('Small')" mdbInput>
+    <label class="custom-control-label" for="small">Small</label>
+  </div>
+
+  <div class="custom-control custom-radio">
+    <input type="radio" class="custom-control-input" id="medium" name="size_rb" (click)="sSize('Medium')" mdbInput>
+    <label class="custom-control-label" for="medium">Medium</label>
+  </div>
+
+  <div class="custom-control custom-radio">
+      <input type="radio" class="custom-control-input" id="large" name="size_rb" (click)="sSize('Large')" mdbInput>
+      <label class="custom-control-label" for="large">Large</label>
+    </div>
+  </div>
+
+
+
+  <div id="shape">
+      <h4><b>Shape</b></h4>
+
+    <div class="custom-control custom-radio">
+        <input type="radio" class="custom-control-input" id="square" name="shape_rb" (click)="sShape('Square')" mdbInput>
+        <label class="custom-control-label" for="square">Square</label>
+      </div>
+
+      <div class="custom-control custom-radio">
+        <input type="radio" class="custom-control-input" id="round" name="shape_rb" (click)="sShape('Round')" mdbInput>
+        <label class="custom-control-label" for="round">Round</label>
+      </div>
+
+      <div class="custom-control custom-radio">
+          <input type="radio" class="custom-control-input" id="rectangular" name="shape_rb" (click)="sShape('Rectangular')" mdbInput>
+          <label class="custom-control-label" for="rectangular">Rectangular</label>
+        </div>
+      </div>
+
+
+      <div id="flavour">
+          <h4><b>Flavour</b></h4>
+
+        <div class="custom-control custom-radio">
+            <input type="radio" class="custom-control-input" id="chocolate" name="flavour_rb" (click)="sFlavour('Chocolate')" mdbInput>
+            <label class="custom-control-label" for="chocolate">Chocolate</label>
+          </div>
+
+          <div class="custom-control custom-radio">
+            <input type="radio" class="custom-control-input" id="vanilla" name="flavour_rb" (click)="sFlavour('Vanilla')" mdbInput>
+            <label class="custom-control-label" for="vanilla">Vanilla</label>
+          </div>
+
+          <div class="custom-control custom-radio">
+              <input type="radio" class="custom-control-input" id="redVelvet" name="flavour_rb" (click)="sFlavour('Red Velvet')" mdbInput>
+              <label class="custom-control-label" for="redVelvet">Red Velvet</label>
+            </div>
+          </div>
+
+<br><br>
+
+<nav>
+<a routerLink="customize-frostop" routerLinkActive="router-link-active" >
+  <button type="button" id="view_options_button" class="btn btn-info" (click)="onClickView()">View Frosting/Topping Options</button>
+  </a>
+</nav>
+
+<router-outlet></router-outlet>
+<!-- <router-outlet name="frostop"></router-outlet> -->
+<!--
+
+<button type="button" id="view_button" class="btn btn-info" >View My Cake</button>
+
+<br><br><br>
+
+<app-customized-cake-view></app-customized-cake-view> -->

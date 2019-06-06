@@ -1,0 +1,89 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <form [formGroup]="cakeForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+        <div class="row">
+          <div class="col-xs-12">
+            <button [disabled]="!cakeForm.valid" type="submit" class="btn btn-success" style="margin-right: 10px;">Save</button>
+            <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" class="form-control" formControlName="name" required style="width: 500px">
+            </div>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <!-- <label for="imagePath">Image &nbsp;&nbsp;</label> -->
+              <!-- <input type="text" id="imagePath" class="form-control" formControlName="imagePath" #imagePath style="width: 500px"> -->
+              <button type="button" (click)="filePicker.click()">Pick Image</button>
+              <input type="file" #filePicker (change)="onImagePicked($event)" style="width: 500px" >
+            </div>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col-xs-12 image-preview" *ngIf="imagePreview !== '' && imagePreview && cakeForm.get('imagePath').valid">
+           <img [src]="imagePreview" class="img-responsive" >
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="category">Category</label>
+              <input type="text" id="category" class="form-control"  formControlName="category" style="width: 500px">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="price">Price</label>
+              <input type="text" id="price" class="form-control"  formControlName="price" style="width: 500px">
+            </div>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <label for="description"  >Description</label>
+              <textarea type="text" id="description" class="form-control" rows="6" formControlName="description" style="width: 500px"></textarea>
+            </div>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col-xs-12" formArrayName="features">
+          
+            <div class="row"
+            *ngFor="let featureCtrl of cakeForm.get('features').controls; let i=index" 
+            [formGroupName]="i" style="margin-top: 10px;">
+              <div class="col-xs-10">
+                <input type="text" class="form-control" formControlName="feature" style="width: 475px">
+              </div>
+              
+              <div class="col-xs-2">
+                <button class="btn btn-danger" type="button" (click)="onDeleteFeature(i)">X</button>
+              </div>
+            </div>
+             <hr>
+           <div class="row">
+             <div class="col-xs-12">
+               <button class="btn btn-success" type="button" (click)="onAddFeature()">Add Feature</button>
+             </div>
+           </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

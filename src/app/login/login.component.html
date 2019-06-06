@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+    <body>
+    <section class="login_box_area p_120">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="login_box_img">
+              <img class="img-fluid" src="assets/login.jpg" alt="" >
+            <div class="hover">
+            <h4>New to our website?</h4>
+            <p>There are advances being made in science and technology everyday, and a good example of this is the</p>
+            <!--<a class="main_btn" href="#">Create an Account</a>-->
+            <div>
+              <button  class="btn btn-dark btn-lg btn-block" routerLink="/register">Create an Account</button>
+            </div>
+            </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="login_form_inner reg_form">
+              <h3>Login</h3>
+              <form #signInForm="ngForm" (ngSubmit)="signInForm.valid && onSubmit(signInForm)">
+                  <input type="text" name="email" #email="ngModel" [(ngModel)]="model.email" placeholder="Email" [pattern]="emailRegex" required
+                    [ngClass]="{'invalid-textbox' :signInForm.submitted && !email.valid }">
+                  <div *ngIf="signInForm.submitted && email.errors?.pattern">
+                    <label class="validation-message">Invalid email address.</label>
+                  </div>
+                  <input type="password" name="password" #password="ngModel" [(ngModel)]="model.password" placeholder="Password" required minlength="4"
+                    [ngClass]="{'invalid-textbox' :signInForm.submitted && !password.valid }">
+                  <div *ngIf="signInForm.submitted && password.errors?.minlength">
+                    <label class="validation-message">Minimum 4 characters.</label>
+                  </div>
+                  <input type="submit" value="Sign In">
+                </form>
+
+              <div class="success" *ngIf="showSuccessMessage">
+                saved successfully
+              </div>
+            </div>
+
+            <div class="alert" *ngIf="serverErrorMessages">
+              {{serverErrorMessages}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
+

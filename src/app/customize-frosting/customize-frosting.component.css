@@ -1,0 +1,25 @@
+.wrap {
+  width: 100%;
+}
+
+.floatleft {
+  float:left;
+  width: 49%;
+  height: 400px;
+}
+
+.floatright {
+float: right;
+  height: 400px;
+  width: 49%;
+}
+
+.center{
+  width: 2%;
+}
+
+.mat-grid-tile {
+  background: lightblue;
+  border: 10rem;
+}
+

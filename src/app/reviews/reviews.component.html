@@ -1,0 +1,37 @@
+<div class="container content padding-64 " style="max-width:800px;" id="contact">
+  <div class="yellow hover-amber center "style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+    <h2 class="mukta" style="font-weight: 500;padding:5px 20px; text-align:left; "><i>Contact</i></h2>
+  </div>
+  <div class="row container">
+    <div class="col-md6 align-center">
+      <h3 style="text-align: left; font-weight: 400; padding-top:15px;">Location</h3>
+      <hr/>
+      <i class="fa fa-map-marker" style="width:30px"></i>No 66, Attidiya Road, Ratmalana <br>
+      <i class="fa fa-phone" style="width:30px"></i>: 94 11 5766041<br>
+      <i class="fa fa-envelope" style="width:30px"> </i>: cakecorner@mail.com<br>
+      <i class="fa fa-clock" style="width:30px"> </i>: 7:30 AM to 10.30PM<br>
+    </div>
+    <div class="col-md6">
+      <h3 style="text-align: left; font-weight: 400; padding-top:15px;">Let's get in touch!</h3>
+      <hr/>
+      <p>Feel free to contact us for more information or get in touch with our customer care at our office.</p>
+      <form [formGroup]="feedForm" (ngSubmit)="onSubmit()">
+        <div class="container" style="margin:0 -16px 8px -16px">
+          <div class="">
+            <input class="form-control" type="text" placeholder="Name" formControlName="name">
+          </div>
+          <div class="half" style="margin-top: 9px;">
+            <input class="form-control" type="email" placeholder="Email" style="padding:12px;border-radius: 5px;" formControlName="email" >
+            
+          </div>
+        </div>
+        <textarea class="form-control" placeholder="Message" formControlName="message" ></textarea>
+        <br>
+        <div class="col text-center">
+        <button [disabled]="!feedForm.valid" class="btn btn-dark" type="submit">SEND</button>
+      </div>
+      </form>
+
+    </div>
+  </div>
+</div>
