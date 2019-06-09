@@ -25,12 +25,20 @@ export class CustomizationService {
     return this.selectedFlavour;
   }
 
+  public getFrosting(): string{
+    return this.selectedFrosting;
+  }
+
+  public getTopping(): string{
+    return this.selectedTopping;
+  }
+
   public setSize(size: string): null{
     this.selectedSize = size;
     return null;
   }
   public setShape(shape: string): null{
-    this.selectedSize = shape;
+    this.selectedShape = shape;
     return null;
   }
   public setFlavour(flavour: string): null{

@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NotifierModule } from 'angular-notifier';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -54,7 +56,8 @@ import { UpdateProfileComponent } from './user-profile/update-profile/update-pro
 import { CustomizeFrostingComponent } from './customize-frosting/customize-frosting.component';
 import { CustomizeToppingComponent } from './customize-topping/customize-topping.component';
 import { CustomizedCakeViewComponent } from './customized-cake-view/customized-cake-view.component';
-
+import { CustomizationAdminComponent } from './customization-admin/customization-admin.component';
+import { CustomizationAdminCakeComponent } from './customization-admin-cake/customization-admin-cake.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +91,9 @@ import { CustomizedCakeViewComponent } from './customized-cake-view/customized-c
     UpdateProfileComponent,
     CustomizeFrostingComponent,
     CustomizeToppingComponent,
-    CustomizedCakeViewComponent
+    CustomizedCakeViewComponent,
+    CustomizationAdminComponent,
+    CustomizationAdminCakeComponent
   ],
   imports: [
     HttpModule,
@@ -104,7 +109,12 @@ import { CustomizedCakeViewComponent } from './customized-cake-view/customized-c
     ReactiveFormsModule,
     HttpClientModule,
     NgxStripeModule.forRoot('pk_test_lJqo2ImUTmU0oIz3NjK8dPFR00V56Xrxi6'),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NotifierModule.withConfig( {
+      // Custom options in here
+    } ),
+    MatFormFieldModule,
+    MatSelectModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

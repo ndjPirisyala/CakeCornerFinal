@@ -30,27 +30,23 @@ export class CustomizeToppingComponent implements OnInit {
   private selectedTopping: string;
 
   animationState: string;
-
-  // public topArr: any[];
+  topArr: any;
 
   ngOnInit() {
-    // if (this.selectedFlavour === 'Chocolate') {
-    //   this.http.get('http://localhost:3030/getTopChoco').subscribe((data) => this.topArr[0] = data[0]);
-    // }
-    // if (this.selectedFlavour === 'Vanilla') {this.http.get('http://localhost:3030/getTopVan').subscribe((data) => console.log(data)); }
-    // if (this.selectedFlavour === 'Red Velvet') {this.http.get('http://localhost:3030/getTopRedv').subscribe((data) => console.log(data)); }
-
-    // console.log(this.topArr[0]);
+    if (this.selectedFlavour === 'Chocolate') {
+      this.http.get('http://localhost:3030/getTopChoco').subscribe((data) =>  this.topArr = data ); }
+    if (this.selectedFlavour === 'Vanilla') {
+      this.http.get('http://localhost:3030/getTopVan').subscribe((data) =>  this.topArr = data ); }
+    if (this.selectedFlavour === 'Red Velvet') {
+      this.http.get('http://localhost:3030/getTopRedv').subscribe((data) =>  this.topArr = data ); }
+    console.log(this.topArr);
   }
 
-  public sFrosting(topping: string): null {
+  public sTopping(topping: string): null {
     console.log(topping);
     this.selectedTopping = topping;
+    this.data.setTopping(this.selectedTopping);
     return null;
-    }
-
-  onClickView() {
-    this.data.setFrosting(this.selectedTopping);
     }
 
   startAnimation(state) {

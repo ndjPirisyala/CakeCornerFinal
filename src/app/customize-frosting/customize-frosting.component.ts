@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomizationService } from '../customization.service';
 import { HttpClient} from '@angular/common/http';
+import { NotifierService } from 'angular-notifier';
 
 import { trigger, keyframes, animate, transition } from '@angular/animations';
 import * as kf from './keyframes';
@@ -23,10 +24,12 @@ import * as kf from './keyframes';
 })
 export class CustomizeFrostingComponent implements OnInit {
 
-  constructor( private data: CustomizationService, private http: HttpClient ) { }
+  private readonly notifier: NotifierService;
 
-  private selectedSize = this.data.getSize();
-  private selectedShape = this.data.getShape();
+  constructor( private data: CustomizationService, private http: HttpClient, notifierService: NotifierService ) {
+    this.notifier = notifierService;
+  }
+
   private selectedFlavour = this.data.getFlavour();
   private selectedFrosting: string;
 
@@ -46,15 +49,15 @@ export class CustomizeFrostingComponent implements OnInit {
   public sFrosting(frosting: string): null {
     console.log(frosting);
     this.selectedFrosting = frosting;
+    this.data.setFrosting(this.selectedFrosting);
+    // this.notifier.notify( 'success', 'Great choice! Your frosting is '.concat(frosting) );
+    // this.notifier.hideOldest();
+    // this.startAnimation('swing');
     return null;
     }
 
-  onClickView() {
-    this.data.setFrosting(this.selectedFrosting);
-    }
-
     startAnimation(state) {
-      // console.log(this.frosArr);
+      console.log(this.frosArr);
       console.log(state);
       if ( !this.animationState ) {
         this.animationState = state;
@@ -63,9 +66,5 @@ export class CustomizeFrostingComponent implements OnInit {
 
     resetAnimationState() {
       this.animationState = '';
-    }
-
-    foo(){
-      transition('* => swing', animate(1000, keyframes(kf.swing)));
     }
 }

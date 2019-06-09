@@ -4,7 +4,7 @@
 
 <mat-grid-list cols="6" rowHeight="1:1.5">
     <mat-grid-tile *ngFor="let fros of frosArr">
-          <mat-card class="example-card"
+          <!-- <mat-card class={{fros.fros_pic}}
           [@cardAnimator]="animationState"
           (@cardAnimator.done)="resetAnimationState()">
 
@@ -16,9 +16,21 @@
             </p>
           </mat-card-content>
           <mat-card-actions>
-            <button id={{fros.fros_pic}} mat-raised-button color="primary" (click)="startAnimation('swing')">SWING</button>
+            <button id={{fros.fros_pic}} mat-raised-button color="primary" (click)="sFrosting(fros.fros_name)">SWING</button>
           </mat-card-actions>
-          </mat-card>
+          </mat-card> -->
+
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src={{fros.fros_pic}} alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">{{fros.fros_name}}</h5>
+              <h4>{{fros.fros_price}}</h4>
+              <p class="card-text">
+                Mouth watering goodness of nutella.
+              </p>
+              <a  class="btn btn-primary" (click)="sFrosting(fros.fros_name)"><font color="white">Get this...</font></a>
+            </div>
+          </div>
     </mat-grid-tile>
 </mat-grid-list>
 

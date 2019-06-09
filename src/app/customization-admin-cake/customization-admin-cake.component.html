@@ -1,0 +1,86 @@
+<nav class="nav nav-pills flex-column flex-sm-row">
+    <a class="flex-sm-fill text-sm-center nav-link" href="http://localhost:4200/customize-admin">Add new frosting/topping</a>
+    <a class="flex-sm-fill text-sm-center nav-link active" href="http://localhost:4200/customize-admin-cake">Add new classic range cake</a>
+  </nav>
+
+
+<div class="form-row">
+<div class="form-group col-md-4 mb-2">
+    <label for="shape">Choose shape</label>
+    <select id="shape" class="form-control" (change)="onChangeShape($event)">
+      <option selected>Square</option>
+      <option>Round</option>
+      <option>Rectangular</option>
+    </select>
+  </div>
+
+  <div class="form-group col-md-4 mb-2">
+      <label for="flavor">Choose flavor</label>
+      <select id="flavor" class="form-control" (change)="onChangeFlavor($event)">
+        <option selected>Chocolate</option>
+        <option>Vanilla</option>
+        <option>Red Velvet</option>
+      </select>
+    </div>
+</div>
+
+
+<div class="form-row">
+    <div class="form-group col-md-4 mb-2">
+        <label for="fros">Choose frosting</label>
+        <select id="fros" class="form-control" (change)="onChangeFros($event)">
+          <option *ngFor="let fros of frosArr">
+              {{fros}}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group col-md-4 mb-2">
+          <label for="top">Choose topping</label>
+          <select id="top" class="form-control" (change)="onChangeTop($event)">
+            <option *ngFor="let top of topArr">
+              {{top}}
+            </option>
+          </select>
+        </div>
+    </div>
+
+
+<div class="col-md-4 mb-3">
+        <label for="small">Price for size small</label>
+        <input type="text" class="form-control" id="small" placeholder="Small" required>
+        <div class="invalid-feedback">
+          The field name can not be empty!
+        </div>
+      </div>
+
+<div class="col-md-4 mb-3">
+        <label for="medium">Price for size medium</label>
+        <input type="text" class="form-control" id="medium" placeholder="Medium" required>
+        <div class="invalid-feedback">
+          The field name can not be empty!
+        </div>
+      </div>
+
+<div class="col-md-4 mb-3">
+        <label for="large">Price for size large</label>
+        <input type="text" class="form-control" id="large" placeholder="Large" required>
+        <div class="invalid-feedback">
+          The field name can not be empty!
+        </div>
+      </div>
+
+
+<div class="form-row">
+      <div class="col-md-12 mb-1">
+        <label for="url">Picture URL</label>
+        <input type="text" class="form-control" id="url" placeholder="URL" required>
+        <div class="invalid-feedback">
+          The field URL can not be empty!
+        </div>
+      </div>
+    </div>
+
+
+<br><br>
+<button class="btn btn-primary" type="submit" (click)="onClickSubmit()">Submit form</button>

@@ -1,0 +1,126 @@
+
+<nav class="nav nav-pills flex-column flex-sm-row">
+    <a class="flex-sm-fill text-sm-center nav-link active" href="http://localhost:4200/customize-admin">Add new frosting/topping</a>
+    <a class="flex-sm-fill text-sm-center nav-link" href="http://localhost:4200/customize-admin-cake">Add new classic range cake</a>
+  </nav>
+
+<br>
+
+<form class="needs-validation" novalidate>
+
+    <fieldset class="form-group">
+        <div class="row">
+          <legend class="col-form-label col-sm-2 pt-0">Kind of dressing</legend>
+          <div class="col-sm-10">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" (click)="sType('Frosting')" id="gridRadios1" value="option1">
+              <label class="form-check-label" for="gridRadios1">
+                Frosting
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" (click)="sType('Topping')" id="gridRadios2" value="option2">
+              <label class="form-check-label" for="gridRadios2">
+                Topping
+              </label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-group">
+          <div class="row">
+            <legend class="col-form-label col-sm-2 pt-0">Availability for flavors</legend>
+              <div class="col-sm-10">
+                  <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="chocolate" (click)="sChoco()">
+                      <label class="custom-control-label" for="chocolate">Chocolate</label>
+                    </div>
+
+                  <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="vanilla" (click)="sVan()">
+                      <label class="custom-control-label" for="vanilla">Vanilla</label>
+                    </div>
+
+                  <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="redVelvet" (click)="sRedV()">
+                      <label class="custom-control-label" for="redVelvet">Red Velvet</label>
+                    </div>
+                </div>
+            </div>
+          </fieldset>
+
+      <br>
+
+      <div class="form-row">
+          <div class="col-md-4 mb-3">
+            <label for="number">Frosting/Topping No.</label>
+            <input type="text" class="form-control" id="number" placeholder="Frosting/Topping No." required>
+            <div class="invalid-feedback">
+              The field number can not be empty!
+            </div>
+          </div>
+      </div>
+
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Name" required>
+        <div class="invalid-feedback">
+          The field name can not be empty!
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="price">Price</label>
+        <input type="text" class="form-control" id="price" placeholder="Price" required>
+        <div class="invalid-feedback">
+          The field price can not be empty!
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="col-md-12 mb-1">
+        <label for="url">Picture URL</label>
+        <input type="text" class="form-control" id="url" placeholder="URL" required>
+        <div class="invalid-feedback">
+          The field URL can not be empty!
+        </div>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="form-group">
+        <label for="description">Description</label>
+        <textarea class="form-control" id="description" rows="3" required></textarea>
+        <div class="invalid-feedback">
+            The field description can not be empty!
+          </div>
+      </div>
+
+      <br>
+
+    <button class="btn btn-primary" type="submit" (click)="onClickSubmit()">Submit form</button>
+  </form>
+
+  <script>
+  // Example starter JavaScript for disabling form submissions if there are invalid fields
+  (function() {
+    'use strict';
+    window.addEventListener('load', function() {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.getElementsByClassName('needs-validation');
+      // Loop over them and prevent submission
+      var validation = Array.prototype.filter.call(forms, function(form) {
+        form.addEventListener('submit', function(event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
+  </script>

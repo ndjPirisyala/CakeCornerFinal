@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomizationService } from '../customization.service';
+
 
 @Component({
   selector: 'app-customize-frostop',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomizeFrostopComponent implements OnInit {
 
-  constructor() { }
+  constructor( private data: CustomizationService ) { }
 
   ngOnInit() {
   }
+
+  private selectedFrosting: string;
+  private selectedTopping: string;
+
 
 }

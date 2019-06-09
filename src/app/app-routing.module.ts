@@ -23,7 +23,8 @@ import { UpdateProfileComponent } from './user-profile/update-profile/update-pro
 import { CustomizeFrostopComponent } from './customize-frostop/customize-frostop.component';
 import { CustomizationComponentComponent } from './customization-component/customization-component.component';
 import { CustomizedCakeViewComponent } from './customized-cake-view/customized-cake-view.component';
-
+import { CustomizationAdminComponent } from './customization-admin/customization-admin.component';
+import { CustomizationAdminCakeComponent } from './customization-admin-cake/customization-admin-cake.component';
 
 const routes: Routes = [
 
@@ -36,6 +37,8 @@ const routes: Routes = [
           ]}
       ]
     },
+  {path: 'customize-admin', component: CustomizationAdminComponent},
+  {path: 'customize-admin-cake', component: CustomizationAdminCakeComponent},
   {path: 'payments/paymentsuccess', component: PaymentsuccessComponent},
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},

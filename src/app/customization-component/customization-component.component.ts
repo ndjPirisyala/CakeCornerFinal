@@ -8,7 +8,7 @@ import { CustomizationService } from '../customization.service';
 })
 export class CustomizationComponentComponent implements OnInit {
 
-  constructor( private data: CustomizationService) { }
+  constructor( private data: CustomizationService ) { }
 
   cakeName = 'Test Cake';
   private selectedSize: string;
@@ -36,7 +36,7 @@ export class CustomizationComponentComponent implements OnInit {
     return null;
       }
 
- onClickView(){
+ onClickView() {
   this.data.setSize(this.selectedSize);
   this.data.setShape(this.selectedShape);
   this.data.setFlavour(this.selectedFlavour);
